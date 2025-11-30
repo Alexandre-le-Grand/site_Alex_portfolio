@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  portfolio:
+    image: nginx:alpine
+    container_name: site_alex_portfolio
+    restart: unless-stopped
+    
+    # ATTENTION : J'ai mis le port 8086 ici.
+    # Il doit être différent de ton site d'accueil (qui est peut-être sur 8085).
+    ports:
+      - "8086:80"
+    
+    # Mappage du dossier actuel vers le serveur web
+    volumes:
+      - ./:/usr/share/nginx/html
